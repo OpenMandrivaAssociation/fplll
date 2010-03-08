@@ -1,11 +1,10 @@
 %define name		fplll
 %define version		3.0
-%define release		%mkrel 2
+%define release		%mkrel 3
 %define major		3
-%define patchlevel	11
+%define patchlevel	12
 %define libname		%mklibname %{name} %{major}
 %define devname		%mklibname %{name} -d
-%define staticdevname	%mklibname %{name} -d -s
 
 Name:		%{name}
 Group:		Sciences/Mathematics
@@ -14,7 +13,7 @@ Summary:	LLL-reduction of euclidean lattices
 Version:	%{version}
 Release:	%{release}
 Source:		http://perso.ens-lyon.fr/damien.stehle/downloads/lib%{name}-%{version}.%{patchlevel}.tar.gz
-URL:		http://perso.ens-lyon.fr/damien.stehle/english.html
+URL:		http://perso.ens-lyon.fr/damien.stehle/index.html
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 BuildRequires:	gmp-devel
@@ -43,20 +42,12 @@ Provides:	%{name}-devel = %{version}-%{release}
 libfpll libraries, includes, etc. fplll is code that LLL-reduces
 euclidean lattices.
 
-%package	-n %{staticdevname}
-Summary:	libfplll static library
-Group:		Development/C
-Requires:	%{name}-devel = %{version}
-
-%description	-n %{staticdevname}
-libfpll static library. fplll is code that LLL-reduces euclidean lattices.
-
 %prep
 %setup -q -n lib%{name}-%{version}.%{patchlevel}
 
 %build
 autoreconf
-%configure --includedir=%{_includedir}/%{name}
+%configure --enable-shared --disable-static --includedir=%{_includedir}/%{name}
 
 %make
 
@@ -84,7 +75,3 @@ rm -rf %{buildroot}
 %defattr(-,root,root)
 %{_libdir}/libfplll.la
 %{_libdir}/libfplll.so
-
-%files		-n %{staticdevname}
-%defattr(-,root,root)
-%{_libdir}/libfplll.a
