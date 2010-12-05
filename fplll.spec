@@ -1,6 +1,6 @@
 %define name		fplll
 %define version		3.0
-%define release		%mkrel 3
+%define release		%mkrel 4
 %define major		3
 %define patchlevel	12
 %define libname		%mklibname %{name} %{major}
