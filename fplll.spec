@@ -1,6 +1,6 @@
 %define name		fplll
 %define version		3.0
-%define release		%mkrel 4
+%define release		%mkrel 5
 %define major		3
 %define patchlevel	12
 %define libname		%mklibname %{name} %{major}
@@ -27,7 +27,6 @@ and Damien Stehlé.
 %package	-n %{libname}
 Summary:	lib%{name} shared libraries
 Group:		System/Libraries
-Provides:	%{name} = %{version}-%{release}
 
 %description	-n %{libname}
 libfpll shared libraries. fplll is code that LLL-reduces euclidean lattices.
