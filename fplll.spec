@@ -1,6 +1,6 @@
 %define name		fplll
 %define version		3.0
-%define release		%mkrel 5
+%define release		%mkrel 6
 %define major		3
 %define patchlevel	12
 %define libname		%mklibname %{name} %{major}
@@ -52,6 +52,7 @@ autoreconf
 
 %install
 %makeinstall_std
+rm %{buildroot}%{_libdir}/libfplll.la
 
 %clean
 rm -rf %{buildroot}
@@ -72,5 +73,4 @@ rm -rf %{buildroot}
 
 %files		-n %{devname}
 %defattr(-,root,root)
-%{_libdir}/libfplll.la
 %{_libdir}/libfplll.so
