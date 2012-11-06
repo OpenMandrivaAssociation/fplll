@@ -1,8 +1,9 @@
 %define name		fplll
-%define major		4
+%define major		0
 %define libfplll	%mklibname %{name} %{major}
 %define libfplll_devel	%mklibname %{name} -d
 
+Epoch:		1
 Name:		%{name}
 Group:		Sciences/Mathematics
 License:	LGPLv2+
@@ -38,8 +39,10 @@ libfpll shared libraries. fplll is code that LLL-reduces euclidean lattices.
 %package	-n %{libfplll_devel}
 Summary:	lib%{name} libraries, includes, etc
 Group:		Development/C
-Requires:	%{libfplll} = %{version}
-Provides:	%{name}-devel = %{version}-%{release}
+Requires:	%{libfplll} = %{EVRD}
+Provides:	%{name}-devel = %{EVRD}
+Conflicts:	%{_lib}fplll3 < 3.0-7
+Obsoletes:	%{_lib}fplll3 < 3.0-7
 
 %description	-n %{libfplll_devel}
 libfpll libraries, includes, etc. fplll is code that LLL-reduces
@@ -72,9 +75,9 @@ make check
 %{_bindir}/*
 
 %files		-n %{libfplll}
-%{_includedir}/%{name}.h
-%{_includedir}/%{name}
 %{_libdir}/libfplll.so.*
 
 %files		-n %{libfplll_devel}
+%{_includedir}/%{name}.h
+%{_includedir}/%{name}
 %{_libdir}/libfplll.so
