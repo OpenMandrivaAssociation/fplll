@@ -9,7 +9,7 @@ Group:		Sciences/Mathematics
 License:	LGPLv2+
 Summary:	LLL-reduction of euclidean lattices
 Version:	4.0.1
-Release:	1
+Release:	2
 Source:		http://perso.ens-lyon.fr/damien.stehle/fplll/lib%{name}-%{version}.tar.gz
 URL:		http://perso.ens-lyon.fr/damien.stehle/fplll/
 BuildRequires:	gmp-devel
