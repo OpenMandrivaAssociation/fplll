@@ -1,0 +1,29 @@
+diff -up libfplll-4.0.1/src/fplllv31.h.orig libfplll-4.0.1/src/fplllv31.h
+--- libfplll-4.0.1/src/fplllv31.h.orig	2012-10-20 16:12:28.312620072 -0300
++++ libfplll-4.0.1/src/fplllv31.h	2012-10-20 16:29:21.593658874 -0300
+@@ -64,7 +64,7 @@ struct heuristic : public lll31method<ZT
+   heuristic(ZZ_mat<ZT>*B, int precision = 0, double eta = LLL_DEF_ETA,
+             double delta = LLL_DEF_DELTA, int siegel = 0) :
+     lll31method<ZT, FT>(LM_HEURISTIC, 0, B, precision,
+-                      delta, eta, delta, siegel) {}
++                      eta, delta, siegel) {}
+ };
+ 
+ template<class ZT, class FT>
+@@ -72,7 +72,15 @@ struct heuristic_early_red : public lll3
+   heuristic_early_red(ZZ_mat<ZT>*B, int precision = 0, double eta = LLL_DEF_ETA,
+                       double delta = LLL_DEF_DELTA, int siegel = 0) :
+     lll31method<ZT, FT>(LM_HEURISTIC, LLL_EARLY_RED, B, precision,
+-                      delta, eta, delta, siegel) {}
++                      eta, delta, siegel) {}
++};
++
++template<class ZT, class FT>
++struct proved : public lll31method<ZT, FT> {
++  proved(ZZ_mat<ZT>*B, int precision = 0, double eta = LLL_DEF_ETA,
++            double delta = LLL_DEF_DELTA, int siegel = 0) :
++    lll31method<ZT, FT>(LM_PROVED, 0, B, precision,
++                      eta, delta, siegel) {}
+ };
+ 
+ struct wrapper {
