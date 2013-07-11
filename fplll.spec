@@ -8,17 +8,14 @@ Name:		%{name}
 Group:		Sciences/Mathematics
 License:	LGPLv2+
 Summary:	LLL-reduction of euclidean lattices
-Version:	4.0.1
-Release:	2
+Version:	4.0.4
+Release:	1
 Source:		http://perso.ens-lyon.fr/damien.stehle/fplll/lib%{name}-%{version}.tar.gz
 URL:		http://perso.ens-lyon.fr/damien.stehle/fplll/
-BuildRequires:	gmp-devel
 BuildRequires:	mpfr-devel
 
-Patch0:		%{name}-fplllv31.patch
-
 %description
-%{name}-%{version} contains several algorithms on lattices that rely on
+fplll contains several algorithms on lattices that rely on
 floating-point computations. This includes implementations of the
 floating-point LLL reduction algorithm, offering different
 speed/guarantees ratios. It contains a 'wrapper' choosing the
@@ -41,8 +38,6 @@ Summary:	lib%{name} libraries, includes, etc
 Group:		Development/C
 Requires:	%{libfplll} = %{EVRD}
 Provides:	%{name}-devel = %{EVRD}
-Conflicts:	%{_lib}fplll3 < 3.0-7
-Obsoletes:	%{_lib}fplll3 < 3.0-7
 
 %description	-n %{libfplll_devel}
 libfpll libraries, includes, etc. fplll is code that LLL-reduces
@@ -50,7 +45,6 @@ euclidean lattices.
 
 %prep
 %setup -q -n lib%{name}-%{version}
-%patch0 -p1
 
 %build
 %configure2_5x --disable-static LDFLAGS="-Wl,--as-needed $RPM_LD_FLAGS"
