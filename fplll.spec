@@ -11,7 +11,7 @@ Summary:	LLL-reduction of euclidean lattices
 Version:	4.0.4
 Release:	3
 Source:		http://perso.ens-lyon.fr/damien.stehle/fplll/lib%{name}-%{version}.tar.gz
-URL:		http://perso.ens-lyon.fr/damien.stehle/fplll/
+URL:		https://perso.ens-lyon.fr/damien.stehle/fplll/
 BuildRequires:	mpfr-devel
 
 %description
