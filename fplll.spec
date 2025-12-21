@@ -12,6 +12,11 @@ Version:	4.0.4
 Release:	3
 Source:		http://perso.ens-lyon.fr/damien.stehle/fplll/lib%{name}-%{version}.tar.gz
 URL:		https://perso.ens-lyon.fr/damien.stehle/fplll/
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	mpfr-devel
 
 %description
